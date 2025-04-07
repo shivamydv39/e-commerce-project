@@ -6,7 +6,8 @@
 *.iml
 *.lock
 *.log
-
+admin_panal/lib/utility/constants.dart
+client_app/lib/utility/constants.dart
 # macOS
 .DS_Store
 
