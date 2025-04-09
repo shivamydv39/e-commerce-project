@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import '../../models/api_response.dart';
 import '../../models/coupon.dart';
 import '../../models/my_notification.dart';
@@ -26,7 +24,6 @@ class DataProvider extends ChangeNotifier {
 
   List<SubCategory> _allSubCategories = [];
   List<SubCategory> _filteredSubCategories = [];
-
   List<SubCategory> get subCategories => _filteredSubCategories;
 
   List<Brand> _allBrands = [];
@@ -170,7 +167,6 @@ class DataProvider extends ChangeNotifier {
       if (showSnack) SnackBarHelper.showErrorSnackBar(e.toString());
       rethrow;
     }
-
     return _filteredBrands;
   }
 
@@ -185,7 +181,6 @@ class DataProvider extends ChangeNotifier {
         return (brand.name ?? '').toLowerCase().contains(lowerKeyword);
       }).toList();
     }
-
     notifyListeners();
   }
 
@@ -199,7 +194,6 @@ class DataProvider extends ChangeNotifier {
           response.body,
               (json) => (json as List).map((item) => VariantType.fromJson(item)).toList(),
         ); // ApiResponse.fromJson
-
         _allVariantTypes = apiResponse.data ?? [];
         _filteredVariantTypes = List.from(_allVariantTypes); // Initialize filtered list with all data
         notifyListeners();
@@ -210,7 +204,6 @@ class DataProvider extends ChangeNotifier {
       if (showSnack) SnackBarHelper.showErrorSnackBar(e.toString());
       rethrow;
     }
-
     return _filteredVariantTypes;
   }
 
@@ -225,7 +218,6 @@ class DataProvider extends ChangeNotifier {
         return (variantType.name ?? '').toLowerCase().contains(lowerKeyword);
       }).toList();
     }
-
     notifyListeners();
   }
 
@@ -235,7 +227,6 @@ class DataProvider extends ChangeNotifier {
   Future<List<Variant>> getAllVariant({bool showSnack = false}) async {
   try {
   Response response = await service.getItems(endpointUrl: 'variants');
-
   if (response.isOk) {
   ApiResponse<List<Variant>> apiResponse = ApiResponse<List<Variant>>.fromJson(
   response.body,
@@ -245,7 +236,6 @@ class DataProvider extends ChangeNotifier {
   _allVariants = apiResponse.data ?? [];
   _filteredVariants = List.from(_allVariants); // Initialize filtered list with all data
   notifyListeners();
-
   if (showSnack) {
   SnackBarHelper.showSuccessSnackBar(apiResponse.message);
   }
@@ -279,11 +269,9 @@ class DataProvider extends ChangeNotifier {
         response.body,
             (json) => (json as List).map((item) => Product.fromJson(item)).toList(),
       ); // ApiResponse.fromJson
-
       _allProducts = apiResponse.data ?? [];
       _filteredProducts = List.from(_allProducts); // Initialize with original data
       notifyListeners();
-
       if (showSnack) SnackBarHelper.showSuccessSnackBar(apiResponse.message);
     } catch (e) {
       if (showSnack) SnackBarHelper.showErrorSnackBar(e.toString());
@@ -297,22 +285,17 @@ class DataProvider extends ChangeNotifier {
       _filteredProducts = List.from(_allProducts);
     } else {
       final lowerKeyword = keyword.toLowerCase();
-
       _filteredProducts = _allProducts.where((product) {
         final productNameContainsKeyword = (product.name ?? '').toLowerCase().contains(lowerKeyword);
         final categoryNameContainsKeyword =
-            product.proSubCategoryId?.name?.toLowerCase().contains(lowerKeyword) ?? false;
+            product.proCategoryId?.name?.toLowerCase().contains(lowerKeyword) ?? false;
         final subCategoryNameContainsKeyword =
             product.proSubCategoryId?.name?.toLowerCase().contains(lowerKeyword) ?? false;
-
-        // You can add more conditions here if there are more fields to match against
         return productNameContainsKeyword || categoryNameContainsKeyword || subCategoryNameContainsKeyword;
       }).toList();
     }
-
     notifyListeners();
   }
-
 
 
   Future<List<Coupon>> getAllCoupons({bool showSnack = false}) async {
@@ -392,7 +375,6 @@ class DataProvider extends ChangeNotifier {
   response.body,
   (json) => (json as List).map((item) => Order.fromJson(item)).toList(),
   );
-  // ApiResponse.fromJson
   print(apiResponse.message);
   _allOrders = apiResponse.data ?? [];
   _filteredOrders = List.from(_allOrders);
@@ -418,7 +400,6 @@ class DataProvider extends ChangeNotifier {
         return nameMatches || statusMatches;
       }).toList();
     }
-
     notifyListeners();
   }
 
@@ -438,7 +419,6 @@ class DataProvider extends ChangeNotifier {
         }
       }
     }
-
     return totalOrders;
   }
 
@@ -464,7 +444,6 @@ class DataProvider extends ChangeNotifier {
     } else {
       _filteredProducts = List.from(_allProducts);
     }
-
     notifyListeners();
   }
 
@@ -515,10 +494,5 @@ class DataProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
-
-
-
-
-
 
 }
