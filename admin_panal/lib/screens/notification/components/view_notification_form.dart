@@ -117,7 +117,7 @@ class ViewNotificationForm extends StatelessWidget {
   }
 }
 
-// How to show the order popup
+// show the order popup
 void viewNotificationStatics(BuildContext context, MyNotification? notification) {
   showDialog(
     context: context,

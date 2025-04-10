@@ -93,7 +93,7 @@ class SendNotificationForm extends StatelessWidget {
   }
 }
 
-// How to show the category popup
+// show the category popup
 void sendNotificationFormForm(BuildContext context) {
   showDialog(
     context: context,

@@ -4,11 +4,9 @@ import '../../../core/data/data_provider.dart';
 import '../../../models/sub_category.dart';
 import 'add_sub_category_form.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import '../../../utility/color_list.dart';
 import '../../../utility/constants.dart';
-import '../../category/components/add_category_form.dart';
 
 
 class SubCategoryListSection extends StatelessWidget {

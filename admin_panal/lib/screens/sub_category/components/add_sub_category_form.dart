@@ -3,7 +3,6 @@ import '../provider/sub_category_provider.dart';
 import '../../../utility/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import '../../../models/category.dart';
 import '../../../utility/constants.dart';
