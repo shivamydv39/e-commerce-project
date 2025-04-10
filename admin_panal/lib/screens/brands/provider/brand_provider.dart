@@ -20,8 +20,6 @@ class BrandProvider extends ChangeNotifier {
   Brand? brandForUpdate;
 
 
-
-
   BrandProvider(this._dataProvider);
 
   addBrand() async {
@@ -63,7 +61,6 @@ class BrandProvider extends ChangeNotifier {
             itemData: brand,
             itemId: brandForUpdate?.sId ?? ''
         );
-
         if (response.isOk) {
           ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
           if (apiResponse.success == true) {

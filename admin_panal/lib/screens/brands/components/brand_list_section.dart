@@ -70,9 +70,10 @@ class BrandListSection extends StatelessWidget {
   }
 }
 
+
 DataRow brandDataRow(Brand brandInfo, int index, {Function? edit, Function? delete}) {
   return DataRow(
-    cells: [
+    cells: [ //list of datacell objects
       DataCell(
         Row(
           children: [

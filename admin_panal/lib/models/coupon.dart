@@ -70,7 +70,7 @@ class Coupon {
     }
     data['createdAt'] = this.createdAt;
     data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
+    data['__v'] = this.iV; //version number
     return data;
   }
 }

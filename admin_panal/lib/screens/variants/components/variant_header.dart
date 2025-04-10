@@ -50,7 +50,7 @@ class ProfileCard extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 12, // Adjust size
-            backgroundImage: AssetImage('/Users/shivamyadav/Documents/FlutterDev/projects/e-com-setup/ecom_startup_code/client_side/admin_panal_startup/assets/images/img.png'),
+            backgroundImage: AssetImage('assets/images/profile.png'),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: defaultPadding / 2),

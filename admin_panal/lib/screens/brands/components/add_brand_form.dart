@@ -111,7 +111,7 @@ class BrandSubmitForm extends StatelessWidget {
   }
 }
 
-// How to show the category popup
+// brand popup
 void showBrandForm(BuildContext context, Brand? brand) {
   showDialog(
     context: context,

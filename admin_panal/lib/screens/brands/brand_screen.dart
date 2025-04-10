@@ -60,7 +60,9 @@ class BrandScreen extends StatelessWidget {
                         ],
                       ),
                       Gap(defaultPadding),
+
                       BrandListSection(),
+
                     ],
                   ),
                 ),
