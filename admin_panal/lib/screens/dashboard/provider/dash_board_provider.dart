@@ -49,7 +49,7 @@ class DashBoardProvider extends ChangeNotifier {
     try {
       if (selectedMainImage == null) {
         SnackBarHelper.showErrorSnackBar('Please Choose A Image !!');
-        return; // Stop the program execution
+        return;
       }
 
       Map<String, dynamic> formDataMap = {
@@ -97,6 +97,7 @@ class DashBoardProvider extends ChangeNotifier {
           rethrow;
         }
       }
+
   updateProduct() async {
     try {
       Map<String, dynamic> formDataMap = {

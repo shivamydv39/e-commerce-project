@@ -23,6 +23,7 @@ class OrderDetailsSection extends StatelessWidget {
         int cancelledOrder = context.dataProvider.calculateOrdersWithStatus(status: 'cancelled');
         int shippedOrder = context.dataProvider.calculateOrdersWithStatus(status: 'shipped');
         int deliveredOrder = context.dataProvider.calculateOrdersWithStatus(status: 'delivered');
+
         return Container(
           padding: EdgeInsets.all(defaultPadding),
           decoration: BoxDecoration(

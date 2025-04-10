@@ -38,6 +38,7 @@ class ProductSummerySection extends StatelessWidget {
             color: Color(0xFFEA3829),
             percentage: totalProduct != 0 ? (outOfStockProduct / totalProduct) * 100 : 0,
           ),
+
           ProductSummeryInfo(
             title: "Limited Stock",
             productsCount: limitedStockProduct,

@@ -50,6 +50,7 @@ class ProductListSection extends StatelessWidget {
                       ),
                       DataColumn(
                         label: Text("Sub Category"),
+
                       ),
                       DataColumn(
                         label: Text("Price"),
@@ -113,6 +114,7 @@ DataRow productDataRow(Product productInfo,{Function? edit, Function? delete}) {
             Icons.edit,
             color: Colors.white,
           ))),
+
       DataCell(IconButton(
           onPressed: () {
             if (delete != null) delete();

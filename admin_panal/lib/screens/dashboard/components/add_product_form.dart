@@ -24,7 +24,7 @@ class ProductSubmitForm extends StatelessWidget {
     context.dashBoardProvider.setDataForUpdateProduct(product);
     return SingleChildScrollView(
       child: Form(
-        key: context.dashBoardProvider.addProductFormKey,
+        key: context.dashBoardProvider.addProductFormKey, //for unique identifier
         child: Container(
           width: size.width * 0.7,
           padding: EdgeInsets.all(defaultPadding),
@@ -334,7 +334,7 @@ class ProductSubmitForm extends StatelessWidget {
   }
 }
 
-// How to show the popup
+//show the popup
 void showAddProductForm(BuildContext context, Product? product) {
   showDialog(
     context: context,
@@ -350,7 +350,6 @@ void showAddProductForm(BuildContext context, Product? product) {
 
 extension SafeList<T> on List<T>? {
   T? safeElementAt(int index) {
-    // Check if the list is null or if the index is out of range
     if (this == null || index < 0 || index >= this!.length) {
       return null;
     }
