@@ -40,8 +40,4 @@ class FavoriteProvider extends ChangeNotifier {
     box.remove(FAVORITE_PRODUCT_BOX);
   }
 
-
-
-
-
 }

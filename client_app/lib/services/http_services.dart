@@ -7,7 +7,6 @@ import '../utility/constants.dart';
 
 class HttpService  {
   final String baseUrl = MAIN_URL;
-
   Future<Response> getItems({required String endpointUrl}) async {
     try {
       return await GetConnect().get('$baseUrl/$endpointUrl');

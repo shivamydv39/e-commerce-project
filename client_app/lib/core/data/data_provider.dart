@@ -41,7 +41,7 @@ class DataProvider extends ChangeNotifier {
 
 
   List<Order> _allOrders = [];
-  List<Order> _filteredOrders = [];
+  final List<Order> _filteredOrders = [];
   List<Order> get orders => _filteredOrders;
 
 
@@ -52,8 +52,6 @@ class DataProvider extends ChangeNotifier {
     getAllSubCategory();
     getAllBrands();
     getAllPosters();
-
-
   }
 
 

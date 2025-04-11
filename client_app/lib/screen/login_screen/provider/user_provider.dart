@@ -20,20 +20,15 @@ class UserProvider extends ChangeNotifier {
 
   Future<String?> register(SignupData data) async {
     try {
-
       String email = data.additionalSignupData['email'] ?? '';
-
       Map<String, dynamic> user = {
         "name": data.name.trim(),
         "email": email.toLowerCase(),
         "password": data.password,
       };
-
       final response = await service.addItem(endpointUrl: 'users/register', itemData: user);
-
       if (response.isOk) {
         ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
-
         if (apiResponse.success == true) {
           SnackBarHelper.showSuccessSnackBar(apiResponse.message);
           log('Register Success');
@@ -56,18 +51,14 @@ class UserProvider extends ChangeNotifier {
 
   Future<String?> login(LoginData data) async {
     try {
-
       Map<String, dynamic> loginData = {
         "email": data.name.toLowerCase(),
         "password": data.password,
       };
-
       final response = await service.addItem(endpointUrl: 'users/login', itemData: loginData);
-
       if (response.isOk) {
         ApiResponse<User> apiResponse = ApiResponse<User>.fromJson(
             response.body, (json) => User.fromJson(json as Map<String, dynamic>));
-
         if (apiResponse.success == true) {
           User? user = apiResponse.data;
           saveLoginInfo(user);

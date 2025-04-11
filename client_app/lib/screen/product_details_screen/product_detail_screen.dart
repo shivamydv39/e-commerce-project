@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/utility/extensions.dart';
-
 import '../../utility/app_color.dart';
 import 'provider/product_detail_provider.dart';
 import 'package:flutter/material.dart';

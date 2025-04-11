@@ -75,7 +75,6 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
 
-
   Future<void> _submit() async {
     if (!_formKey.currentState!.validate()) {
       return;
@@ -89,7 +88,6 @@ class _AuthScreenState extends State<AuthScreen> {
     try {
       String? result;
       if (_isLogin) {
-        // Login
         final loginData = LoginData(
           name: _emailController.text.trim(),
           password: _passwordController.text,
@@ -145,7 +143,6 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -208,7 +205,6 @@ class _AuthScreenState extends State<AuthScreen> {
                         key: _formKey,
                         child: Column(
                           children: [
-                            // Error message
                             if (_errorMessage != null)
                               Container(
                                 padding: const EdgeInsets.all(12),
@@ -245,8 +241,6 @@ class _AuthScreenState extends State<AuthScreen> {
                                 textInputAction: TextInputAction.next,
                               ),
                             if (!_isLogin) const SizedBox(height: 16),
-
-                            // Email field
                             TextFormField(
                               controller: _emailController,
                               decoration: InputDecoration(
@@ -264,8 +258,6 @@ class _AuthScreenState extends State<AuthScreen> {
                               textInputAction: TextInputAction.next,
                             ),
                             const SizedBox(height: 16),
-
-                            // Password field
                             TextFormField(
                               controller: _passwordController,
                               decoration: InputDecoration(

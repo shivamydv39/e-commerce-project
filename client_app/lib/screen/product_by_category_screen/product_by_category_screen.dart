@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/utility/extensions.dart';
-
 import '../../models/brand.dart';
 import '../../models/category.dart';
 import '../../models/sub_category.dart';
@@ -56,7 +55,6 @@ class ProductByCategoryScreen extends StatelessWidget {
                                     onSelect: (val) {
                                       if (val != null) {
                                         context.proByCProvider.filterProductBySubCategory(val);
-
                                       }
                                     },
                                   ),

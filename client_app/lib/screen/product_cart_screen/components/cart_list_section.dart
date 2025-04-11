@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/utility/extensions.dart';
-
 import '../../../utility/utility_extention.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cart/model/cart_model.dart';
@@ -25,7 +24,7 @@ class CartListSection extends StatelessWidget {
               margin: const EdgeInsets.all(15),
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                color: Colors.grey[200]?.withOpacity(0.6),
+                color: Colors.grey[200]?.withAlpha(154),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Wrap(
@@ -84,7 +83,7 @@ class CartListSection extends StatelessWidget {
                       Text(
                         '${cartItem.quantity}',
                         style: TextStyle(
-                          color: Colors.black.withOpacity(0.5),
+                          color: Colors.black.withAlpha(128),
                           fontWeight: FontWeight.w400,
                         ),
                       ),
