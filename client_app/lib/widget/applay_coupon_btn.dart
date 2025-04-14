@@ -17,6 +17,7 @@ class ApplyCouponButton extends StatelessWidget {
         foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
+
         ),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       ),
