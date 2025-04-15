@@ -41,7 +41,7 @@ class DataProvider extends ChangeNotifier {
 
 
   List<Order> _allOrders = [];
-  final List<Order> _filteredOrders = [];
+  List<Order> _filteredOrders = [];
   List<Order> get orders => _filteredOrders;
 
 
@@ -52,6 +52,7 @@ class DataProvider extends ChangeNotifier {
     getAllSubCategory();
     getAllBrands();
     getAllPosters();
+    getAllOrders();
   }
 
 
@@ -231,6 +232,41 @@ class DataProvider extends ChangeNotifier {
       rethrow;
     }
     return _filteredPosters;
+  }
+
+  Future<List<Order>> getAllOrders({ bool showSnack = false}) async {
+    try {
+      Response response = await service.getItems(endpointUrl: 'orders');
+      if (response.isOk) {
+        ApiResponse<List<Order>> apiResponse = ApiResponse<List<Order>>.fromJson(
+          response.body,
+              (json) => (json as List).map((item) => Order.fromJson(item)).toList(),
+        );
+        print(apiResponse.message);
+        _allOrders = apiResponse.data ?? [];
+        _filteredOrders = List.from(_allOrders);
+        notifyListeners();
+        if (showSnack) SnackBarHelper.showSuccessSnackBar(apiResponse.message);
+      }
+    } catch (e) {
+      if (showSnack) SnackBarHelper.showErrorSnackBar(e.toString());
+      rethrow;
+    }
+    return _filteredOrders;
+  }
+
+  void filterOrders(String keyword) {
+    if (keyword.isEmpty) {
+      _filteredOrders = List.from(_allOrders);
+    } else {
+      final lowerKeyword = keyword.toLowerCase();
+      _filteredOrders = _allOrders.where((order) {
+        bool nameMatches = (order.userID?.name ?? '').toLowerCase().contains(lowerKeyword);
+        bool statusMatches = (order.orderStatus ?? '').toLowerCase().contains(lowerKeyword);
+        return nameMatches || statusMatches;
+      }).toList();
+    }
+    notifyListeners();
   }
 
 
