@@ -17,10 +17,8 @@ class CategoryProvider extends ChangeNotifier {
   TextEditingController categoryNameCtrl = TextEditingController();
   Category? categoryForUpdate;
 
-
   File? selectedImage;
   XFile? imgXFile;
-
 
   CategoryProvider(this._dataProvider);
 
@@ -36,11 +34,11 @@ class CategoryProvider extends ChangeNotifier {
         'image': 'no_data', //? image path will add from server side
       };
 
-      final FormData form = await createFormData(
-          imgXFile: imgXFile, formData: formDataMap);
+      final FormData form =
+          await createFormData(imgXFile: imgXFile, formData: formDataMap);
 
-      final response = await service.addItem(
-          endpointUrl: 'categories', itemData: form);
+      final response =
+          await service.addItem(endpointUrl: 'categories', itemData: form);
       if (response.isOk) {
         ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
         if (apiResponse.success == true) {
@@ -54,8 +52,7 @@ class CategoryProvider extends ChangeNotifier {
         }
       } else {
         SnackBarHelper.showErrorSnackBar(
-            'Error ${response.body?['message'] ?? response.statusText}'
-        );
+            'Error ${response.body?['message'] ?? response.statusText}');
       }
     } catch (e) {
       print(e);
@@ -64,8 +61,6 @@ class CategoryProvider extends ChangeNotifier {
     }
   }
 
-
-
   updateCategory() async {
     try {
       Map<String, dynamic> formDataMap = {
@@ -73,8 +68,8 @@ class CategoryProvider extends ChangeNotifier {
         'image': categoryForUpdate?.image ?? '',
       };
 
-      final FormData form = await createFormData(
-          imgXFile: imgXFile, formData: formDataMap);
+      final FormData form =
+          await createFormData(imgXFile: imgXFile, formData: formDataMap);
 
       final response = await service.updateItem(
         endpointUrl: 'categories',
@@ -112,8 +107,6 @@ class CategoryProvider extends ChangeNotifier {
     }
   }
 
-
-
   void pickImage() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
@@ -126,7 +119,8 @@ class CategoryProvider extends ChangeNotifier {
 
   deleteCategory(Category category) async {
     try {
-      Response response = await service.deleteItem(endpointUrl: 'categories', itemId: category.sId ?? '');
+      Response response = await service.deleteItem(
+          endpointUrl: 'categories', itemId: category.sId ?? '');
 
       if (response.isOk) {
         ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
@@ -135,7 +129,8 @@ class CategoryProvider extends ChangeNotifier {
           _dataProvider.getAllCategory();
         }
       } else {
-        SnackBarHelper.showErrorSnackBar('Error ${response.body?['message'] ?? response.statusText}');
+        SnackBarHelper.showErrorSnackBar(
+            'Error ${response.body?['message'] ?? response.statusText}');
       }
     } catch (e) {
       print(e);
@@ -143,11 +138,10 @@ class CategoryProvider extends ChangeNotifier {
     }
   }
 
-
-
-
   //? to create form data for sending image with body
-  Future<FormData> createFormData({required XFile? imgXFile, required Map<String, dynamic> formData}) async {
+  Future<FormData> createFormData(
+      {required XFile? imgXFile,
+      required Map<String, dynamic> formData}) async {
     if (imgXFile != null) {
       MultipartFile multipartFile;
       if (kIsWeb) {

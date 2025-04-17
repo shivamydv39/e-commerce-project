@@ -20,7 +20,6 @@ class CategoryHeader extends StatelessWidget {
         Expanded(child: SearchField(
           onChange: (val) {
             context.dataProvider.filterCategories(val);
-
           },
         )),
         ProfileCard()

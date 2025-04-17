@@ -5,11 +5,6 @@ class AppPages {
   static const HOME = '/';
 
   static final routes = [
-    GetPage(
-      name: HOME,
-      fullscreenDialog: true,
-      page: () => MainScreen()
-    ),
-
+    GetPage(name: HOME, fullscreenDialog: true, page: () => MainScreen()),
   ];
 }

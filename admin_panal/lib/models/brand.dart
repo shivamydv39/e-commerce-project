@@ -7,10 +7,10 @@ class Brand {
 
   Brand(
       {this.sId,
-        this.name,
-        this.subcategoryId,
-        this.createdAt,
-        this.updatedAt});
+      this.name,
+      this.subcategoryId,
+      this.createdAt,
+      this.updatedAt});
 
   Brand.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -34,7 +34,6 @@ class Brand {
     return data;
   }
 }
-
 
 class SubcategoryId {
   String? sId;

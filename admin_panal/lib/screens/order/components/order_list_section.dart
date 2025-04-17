@@ -8,7 +8,6 @@ import '../../../utility/color_list.dart';
 import '../../../models/order.dart';
 import '../../../utility/constants.dart';
 
-
 class OrderListSection extends StatelessWidget {
   const OrderListSection({
     Key? key,
@@ -61,12 +60,12 @@ class OrderListSection extends StatelessWidget {
                   ],
                   rows: List.generate(
                     dataProvider.orders.length,
-                    (index) => orderDataRow(dataProvider.orders[index],index+1, delete: () {
-                      context.orderProvider.deleteOrder(dataProvider.orders[index]);
+                    (index) => orderDataRow(
+                        dataProvider.orders[index], index + 1, delete: () {
+                      context.orderProvider
+                          .deleteOrder(dataProvider.orders[index]);
                     }, edit: () {
-
                       showOrderForm(context, dataProvider.orders[index]);
-
                     }),
                   ),
                 );
@@ -79,7 +78,8 @@ class OrderListSection extends StatelessWidget {
   }
 }
 
-DataRow orderDataRow(Order orderInfo, int index, {Function? edit, Function? delete}) {
+DataRow orderDataRow(Order orderInfo, int index,
+    {Function? edit, Function? delete}) {
   return DataRow(
     cells: [
       DataCell(

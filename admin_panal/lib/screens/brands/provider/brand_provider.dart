@@ -9,7 +9,6 @@ import '../../../models/sub_category.dart';
 import '../../../services/http_services.dart';
 import '../../../utility/snack_bar_helper.dart';
 
-
 class BrandProvider extends ChangeNotifier {
   HttpService service = HttpService();
   final DataProvider _dataProvider;
@@ -19,7 +18,6 @@ class BrandProvider extends ChangeNotifier {
   SubCategory? selectedSubCategory;
   Brand? brandForUpdate;
 
-
   BrandProvider(this._dataProvider);
 
   addBrand() async {
@@ -28,7 +26,8 @@ class BrandProvider extends ChangeNotifier {
         'name': brandNameCtrl.text,
         'subcategoryId': selectedSubCategory?.sId
       };
-      final response = await service.addItem(endpointUrl: 'brands', itemData: brand);
+      final response =
+          await service.addItem(endpointUrl: 'brands', itemData: brand);
       if (response.isOk) {
         ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
         if (apiResponse.success == true) {
@@ -37,10 +36,12 @@ class BrandProvider extends ChangeNotifier {
           log('Brand added');
           _dataProvider.getAllBrands();
         } else {
-          SnackBarHelper.showErrorSnackBar('Failed to add Brand: ${apiResponse.message}');
+          SnackBarHelper.showErrorSnackBar(
+              'Failed to add Brand: ${apiResponse.message}');
         }
       } else {
-        SnackBarHelper.showErrorSnackBar('Error ${response.body?['message'] ?? response.statusText}');
+        SnackBarHelper.showErrorSnackBar(
+            'Error ${response.body?['message'] ?? response.statusText}');
       }
     } catch (e) {
       print(e);
@@ -59,8 +60,7 @@ class BrandProvider extends ChangeNotifier {
         final response = await service.updateItem(
             endpointUrl: 'brands',
             itemData: brand,
-            itemId: brandForUpdate?.sId ?? ''
-        );
+            itemId: brandForUpdate?.sId ?? '');
         if (response.isOk) {
           ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
           if (apiResponse.success == true) {
@@ -69,10 +69,12 @@ class BrandProvider extends ChangeNotifier {
             log('Brand Added');
             _dataProvider.getAllBrands();
           } else {
-            SnackBarHelper.showErrorSnackBar('Failed to add Brand: ${apiResponse.message}');
+            SnackBarHelper.showErrorSnackBar(
+                'Failed to add Brand: ${apiResponse.message}');
           }
         } else {
-          SnackBarHelper.showErrorSnackBar('Error ${response.body?['message'] ?? response.statusText}');
+          SnackBarHelper.showErrorSnackBar(
+              'Error ${response.body?['message'] ?? response.statusText}');
         }
       } catch (e) {
         print(e);
@@ -90,10 +92,10 @@ class BrandProvider extends ChangeNotifier {
     }
   }
 
-
   deleteBrand(Brand brand) async {
     try {
-      Response response = await service.deleteItem(endpointUrl: 'brands', itemId: brand.sId ?? '');
+      Response response = await service.deleteItem(
+          endpointUrl: 'brands', itemId: brand.sId ?? '');
 
       if (response.isOk) {
         ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
@@ -102,7 +104,8 @@ class BrandProvider extends ChangeNotifier {
           SnackBarHelper.showSuccessSnackBar('Brand Deleted Successfully');
           _dataProvider.getAllBrands();
         } else {
-          SnackBarHelper.showErrorSnackBar('Error ${response.body?['message'] ?? response.statusText}');
+          SnackBarHelper.showErrorSnackBar(
+              'Error ${response.body?['message'] ?? response.statusText}');
         }
       }
     } catch (e) {
@@ -116,7 +119,8 @@ class BrandProvider extends ChangeNotifier {
     if (brand != null) {
       brandForUpdate = brand;
       brandNameCtrl.text = brand.name ?? '';
-      selectedSubCategory = _dataProvider.subCategories.firstWhereOrNull((element) => element.sId == brand.subcategoryId?.sId);
+      selectedSubCategory = _dataProvider.subCategories.firstWhereOrNull(
+          (element) => element.sId == brand.subcategoryId?.sId);
     } else {
       clearFields();
     }
@@ -129,8 +133,7 @@ class BrandProvider extends ChangeNotifier {
     brandForUpdate = null;
   }
 
-  updateUI(){
+  updateUI() {
     notifyListeners();
   }
-
 }

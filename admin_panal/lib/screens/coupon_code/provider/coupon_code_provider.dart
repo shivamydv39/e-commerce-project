@@ -28,6 +28,7 @@ class CouponCodeProvider extends ChangeNotifier {
   Product? selectedProduct;
 
   CouponCodeProvider(this._dataProvider);
+
   addCoupon() async {
     try {
       if (endDateCtrl.text.isEmpty) {
@@ -45,8 +46,8 @@ class CouponCodeProvider extends ChangeNotifier {
         "applicableSubcategory": selectedSubCategory?.sId,
         "applicableProduct": selectedProduct?.sId
       };
-      final response = await service.addItem(
-          endpointUrl: 'couponCodes', itemData: coupon);
+      final response =
+          await service.addItem(endpointUrl: 'couponCodes', itemData: coupon);
       if (response.isOk) {
         ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
         if (apiResponse.success == true) {
@@ -68,6 +69,7 @@ class CouponCodeProvider extends ChangeNotifier {
       rethrow;
     }
   }
+
   updateCoupon() async {
     try {
       if (couponForUpdate != null) {
@@ -82,8 +84,10 @@ class CouponCodeProvider extends ChangeNotifier {
           "applicableSubcategory": selectedSubCategory?.sId,
           "applicableProduct": selectedProduct?.sId
         };
-        final response =
-        await service.updateItem(endpointUrl: 'couponCodes', itemData: coupon, itemId: couponForUpdate?.sId ?? '');
+        final response = await service.updateItem(
+            endpointUrl: 'couponCodes',
+            itemData: coupon,
+            itemId: couponForUpdate?.sId ?? '');
         if (response.isOk) {
           ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
           if (apiResponse.success == true) {
@@ -92,10 +96,12 @@ class CouponCodeProvider extends ChangeNotifier {
             log('Coupon Updated');
             _dataProvider.getAllCoupons();
           } else {
-            SnackBarHelper.showErrorSnackBar('Failed to add Coupon: ${apiResponse.message}');
+            SnackBarHelper.showErrorSnackBar(
+                'Failed to add Coupon: ${apiResponse.message}');
           }
         } else {
-          SnackBarHelper.showErrorSnackBar('Error ${response.body?['message'] ?? response.statusText}');
+          SnackBarHelper.showErrorSnackBar(
+              'Error ${response.body?['message'] ?? response.statusText}');
         }
       }
     } catch (e) {
@@ -104,6 +110,7 @@ class CouponCodeProvider extends ChangeNotifier {
       rethrow;
     }
   }
+
   submitCoupon() {
     if (couponForUpdate != null) {
       updateCoupon();
@@ -114,7 +121,8 @@ class CouponCodeProvider extends ChangeNotifier {
 
   deleteCoupon(Coupon coupon) async {
     try {
-      Response response = await service.deleteItem(endpointUrl: 'couponCodes', itemId: coupon.sId ?? '');
+      Response response = await service.deleteItem(
+          endpointUrl: 'couponCodes', itemId: coupon.sId ?? '');
       if (response.isOk) {
         ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
         if (apiResponse.success == true) {
@@ -122,14 +130,14 @@ class CouponCodeProvider extends ChangeNotifier {
           _dataProvider.getAllCoupons();
         }
       } else {
-        SnackBarHelper.showErrorSnackBar('Error ${response.body?['message'] ?? response.statusText}');
+        SnackBarHelper.showErrorSnackBar(
+            'Error ${response.body?['message'] ?? response.statusText}');
       }
     } catch (e) {
       print(e);
       rethrow;
     }
   }
-
 
   //? set data for update on editing
   setDataForUpdateCoupon(Coupon? coupon) {
@@ -141,10 +149,12 @@ class CouponCodeProvider extends ChangeNotifier {
       minimumPurchaseAmountCtrl.text = '${coupon.minimumPurchaseAmount}';
       endDateCtrl.text = '${coupon.endDate}';
       selectedCouponStatus = coupon.status ?? 'active';
-      selectedCategory = _dataProvider.categories.firstWhereOrNull((element) => element.sId == coupon.applicableCategory?.sId);
-      selectedSubCategory =
-          _dataProvider.subCategories.firstWhereOrNull((element) => element.sId == coupon.applicableSubCategory?.sId);
-      selectedProduct = _dataProvider.products.firstWhereOrNull((element) => element.sId == coupon.applicableProduct?.sId);
+      selectedCategory = _dataProvider.categories.firstWhereOrNull(
+          (element) => element.sId == coupon.applicableCategory?.sId);
+      selectedSubCategory = _dataProvider.subCategories.firstWhereOrNull(
+          (element) => element.sId == coupon.applicableSubCategory?.sId);
+      selectedProduct = _dataProvider.products.firstWhereOrNull(
+          (element) => element.sId == coupon.applicableProduct?.sId);
     } else {
       clearFields();
     }

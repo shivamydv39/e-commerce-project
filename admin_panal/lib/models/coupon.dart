@@ -15,18 +15,18 @@ class Coupon {
 
   Coupon(
       {this.sId,
-        this.couponCode,
-        this.discountType,
-        this.discountAmount,
-        this.minimumPurchaseAmount,
-        this.endDate,
-        this.status,
-        this.applicableCategory,
-        this.applicableSubCategory,
-        this.applicableProduct,
-        this.createdAt,
-        this.updatedAt,
-        this.iV});
+      this.couponCode,
+      this.discountType,
+      this.discountAmount,
+      this.minimumPurchaseAmount,
+      this.endDate,
+      this.status,
+      this.applicableCategory,
+      this.applicableSubCategory,
+      this.applicableProduct,
+      this.createdAt,
+      this.updatedAt,
+      this.iV});
 
   Coupon.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];

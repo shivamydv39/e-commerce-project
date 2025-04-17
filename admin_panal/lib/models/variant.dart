@@ -7,10 +7,10 @@ class Variant {
 
   Variant(
       {this.sId,
-        this.name,
-        this.variantTypeId,
-        this.createdAt,
-        this.updatedAt});
+      this.name,
+      this.variantTypeId,
+      this.createdAt,
+      this.updatedAt});
 
   Variant.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -21,7 +21,6 @@ class Variant {
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
   }
-
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

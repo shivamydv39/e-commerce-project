@@ -8,8 +8,6 @@ import 'package:provider/provider.dart';
 import '../../../utility/color_list.dart';
 import '../../../utility/constants.dart';
 
-
-
 class CouponListSection extends StatelessWidget {
   const CouponListSection({
     Key? key,
@@ -66,7 +64,8 @@ class CouponListSection extends StatelessWidget {
                         showAddCouponForm(context, dataProvider.coupons[index]);
                       },
                       delete: () {
-                        context.couponCodeProvider.deleteCoupon(dataProvider.coupons[index]);
+                        context.couponCodeProvider
+                            .deleteCoupon(dataProvider.coupons[index]);
                       },
                     ),
                   ),
@@ -80,7 +79,8 @@ class CouponListSection extends StatelessWidget {
   }
 }
 
-DataRow couponDataRow(Coupon coupon, int index, {Function? edit, Function? delete}) {
+DataRow couponDataRow(Coupon coupon, int index,
+    {Function? edit, Function? delete}) {
   return DataRow(
     cells: [
       DataCell(

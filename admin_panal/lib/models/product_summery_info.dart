@@ -6,7 +6,6 @@ class ProductSummeryInfo {
   final double? percentage;
   final Color? color;
 
-
   ProductSummeryInfo({
     this.svgSrc,
     this.title,
