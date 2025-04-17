@@ -64,7 +64,9 @@ class OrderListSection extends StatelessWidget {
                     (index) => orderDataRow(dataProvider.orders[index],index+1, delete: () {
                       context.orderProvider.deleteOrder(dataProvider.orders[index]);
                     }, edit: () {
+
                       showOrderForm(context, dataProvider.orders[index]);
+
                     }),
                   ),
                 );

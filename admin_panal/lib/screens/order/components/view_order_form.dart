@@ -265,6 +265,7 @@ void showOrderForm(BuildContext context, Order? order) {
     builder: (BuildContext context) {
       return AlertDialog(
         backgroundColor: bgColor,
+
         title: Center(child: Text('Order Details'.toUpperCase(), style: TextStyle(color: primaryColor))),
         content: OrderSubmitForm(order: order),
       );
