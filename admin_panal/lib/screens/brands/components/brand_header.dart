@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../utility/constants.dart';
 
+
 class BrandHeader extends StatelessWidget {
   const BrandHeader({
     Key? key,
@@ -62,6 +63,7 @@ class ProfileCard extends StatelessWidget {
     );
   }
 }
+
 
 class SearchField extends StatelessWidget {
   final Function(String) onChange;
