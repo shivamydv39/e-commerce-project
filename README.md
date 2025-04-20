@@ -51,8 +51,7 @@ This project includes:
 <img width="293" alt="Screenshot 2025-04-06 at 11 45 06 PM" src="https://github.com/user-attachments/assets/7d9065cf-0ab2-4c94-880e-d0d3ded2d7d0" />
 <img width="293" alt="Screenshot 2025-04-06 at 11 49 25 PM" src="https://github.com/user-attachments/assets/34bb3599-cdb9-4f8e-8e70-d78c53f8ddc0" />
 <img width="293" alt="Screenshot 2025-04-06 at 11 51 10 PM" src="https://github.com/user-attachments/assets/66e52c5f-b2ac-49ce-98f2-5add07edd547" />
-<img width="1274" alt="Screenshot 2025-04-07 at 12 27 57 AM" src="https://github.com/user-attachments/assets/73f4fd9c-0cda-4f42-96c5-9e9f3d1e8d8c" />
+<img width="1280" alt="Screenshot 2025-04-20 at 2 11 38 PM" src="https://github.com/user-attachments/assets/d9addbd2-9873-45d7-8f48-650fc89a01c1" />
+<img width="285" alt="Screenshot 2025-04-20 at 2 30 47 PM" src="https://github.com/user-attachments/assets/b5377d32-4b3f-4eca-a2de-3030fc232d81" />
 
-
----
 
