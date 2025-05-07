@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../utility/constants.dart';
 
-
 class BrandHeader extends StatelessWidget {
   const BrandHeader({
     Key? key,
@@ -14,7 +13,7 @@ class BrandHeader extends StatelessWidget {
     return Row(
       children: [
         Text(
-          "Brands",
+          "Brands ",
           style: Theme.of(context).textTheme.titleLarge,
         ),
         Spacer(flex: 2),
@@ -63,7 +62,6 @@ class ProfileCard extends StatelessWidget {
     );
   }
 }
-
 
 class SearchField extends StatelessWidget {
   final Function(String) onChange;
