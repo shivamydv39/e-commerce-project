@@ -51,7 +51,9 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
     );
     if (picked != null && picked != widget.initialDate) {
       setState(() {
+
         widget.controller.text = DateFormat('yyyy-MM-dd').format(picked);
+
         widget.onDateSelected(picked);
       });
     }
