@@ -14,7 +14,8 @@ class CustomDropdown<T> extends StatelessWidget {
     required this.items,
     required this.onChanged,
     this.validator,
-    this.hintText = 'Please Select an option',
+
+    this.hintText = 'Select an option',
     required this.displayItem,
   }) : super(key: key);
 
@@ -22,12 +23,14 @@ class CustomDropdown<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
+
       child: DropdownButtonFormField<T>(
 
         decoration: InputDecoration(
           labelText: hintText,
           hintText: hintText,
           border: OutlineInputBorder(
+
             borderRadius: BorderRadius.circular(8.0),
           ),
         ),
