@@ -24,7 +24,7 @@ class MultiSelectDropDown<T> extends StatelessWidget {
           child: DropdownButton2<T>(
             isExpanded: true,
             hint: Text(
-              'Select Items',
+              'Please Select Items',
               style: TextStyle(
                 fontSize: 14,
                 color: Theme.of(context).hintColor,
@@ -33,6 +33,7 @@ class MultiSelectDropDown<T> extends StatelessWidget {
             items: items.map((item) {
               return DropdownMenuItem<T>(
                 value: item,
+
                 // Disable default onTap to avoid closing menu when selecting an item
                 enabled: false,
                 child: StatefulBuilder(
@@ -70,6 +71,7 @@ class MultiSelectDropDown<T> extends StatelessWidget {
                 ),
               );
             }).toList(),
+
             // Use last selected item as the current value so if we've limited menu height, it scrolls to the last item.
             value: selectedItems.isEmpty ? null : selectedItems.last,
             onChanged: (value) {},
