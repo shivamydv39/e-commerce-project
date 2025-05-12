@@ -33,8 +33,10 @@ class CustomTextField extends StatelessWidget {
             borderSide: BorderSide(color: secondaryColor),
           ),
         ),
+
         keyboardType: inputType,
         onSaved: (value) {
+
           onSave(value?.isEmpty ?? true ? null : value);
         },
         validator: validator,
