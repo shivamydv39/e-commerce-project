@@ -24,7 +24,7 @@ class MultiSelectDropDown<T> extends StatelessWidget {
           child: DropdownButton2<T>(
             isExpanded: true,
             hint: Text(
-              'Please Select Items',
+              'Select Items',
               style: TextStyle(
                 fontSize: 14,
                 color: Theme.of(context).hintColor,
@@ -92,6 +92,7 @@ class MultiSelectDropDown<T> extends StatelessWidget {
                 },
               ).toList();
             },
+
             buttonStyleData: ButtonStyleData(
               padding: EdgeInsets.only(left: 16, right: 8),
               height: 50,
