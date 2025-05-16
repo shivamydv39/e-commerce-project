@@ -50,7 +50,7 @@ class CategorySubmitForm extends StatelessWidget {
                 onSave: (val) {},
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter a category name';
+                    return 'Enter a category name';
                   }
                   return null;
                 },
@@ -99,7 +99,7 @@ class CategorySubmitForm extends StatelessWidget {
   }
 }
 
-// How to show the category popup
+// show the category popup
 void showAddCategoryForm(BuildContext context, Category? category) {
   showDialog(
     context: context,
