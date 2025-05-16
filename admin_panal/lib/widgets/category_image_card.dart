@@ -60,6 +60,7 @@ class CategoryImageCard extends StatelessWidget {
                     fit: BoxFit.cover,
                   )
                 )
+
               else
                 Icon(Icons.camera_alt, size: 50, color: Colors.grey[600]),
               SizedBox(height: 8),
@@ -68,6 +69,7 @@ class CategoryImageCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.grey[800],
+
                 ),
               ),
             ],

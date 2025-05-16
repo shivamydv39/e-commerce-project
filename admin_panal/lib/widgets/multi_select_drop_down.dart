@@ -72,7 +72,8 @@ class MultiSelectDropDown<T> extends StatelessWidget {
               );
             }).toList(),
 
-            // Use last selected item as the current value so if we've limited menu height, it scrolls to the last item.
+            // Use last selected item as the current value so if we've limited menu height,
+            // it scrolls to the last item.
             value: selectedItems.isEmpty ? null : selectedItems.last,
             onChanged: (value) {},
             selectedItemBuilder: (context) {
