@@ -40,6 +40,7 @@ class OrderScreen extends StatelessWidget {
                             child: CustomDropdown(
                               hintText: 'Filter Order By status',
                               initialValue: 'All order',
+
                               items: ['All order', 'pending', 'processing', 'shipped', 'delivered', 'cancelled'],
                               displayItem: (val) => val,
                               onChanged: (newValue) {

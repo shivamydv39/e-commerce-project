@@ -34,6 +34,7 @@ class NotificationScreen extends StatelessWidget {
                           Expanded(
                             child: Text(
                               "My Notification",
+
                               style: Theme
                                   .of(context)
                                   .textTheme
@@ -63,6 +64,7 @@ class NotificationScreen extends StatelessWidget {
                         ],
                       ),
                       Gap(defaultPadding),
+
                       NotificationListSection(),
                     ],
                   ),
