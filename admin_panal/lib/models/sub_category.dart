@@ -1,4 +1,5 @@
 class SubCategory {
+
   String? sId;
   String? name;
   CategoryId? categoryId;

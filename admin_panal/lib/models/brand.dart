@@ -41,7 +41,6 @@ class SubcategoryId {
   String? categoryId;
   String? createdAt;
   String? updatedAt;
-
   SubcategoryId(
       {this.sId, this.name, this.categoryId, this.createdAt, this.updatedAt});
 
