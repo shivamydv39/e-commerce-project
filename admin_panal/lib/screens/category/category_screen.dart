@@ -46,6 +46,7 @@ class CategoryScreen extends StatelessWidget {
                             icon: Icon(Icons.add),
                             label: Text("Add New"),
                           ),
+
                           Gap(20),
                           IconButton(
                               onPressed: () {
@@ -56,6 +57,7 @@ class CategoryScreen extends StatelessWidget {
                         ],
                       ),
                       Gap(defaultPadding),
+
                       CategoryListSection(),
                     ],
                   ),
