@@ -31,12 +31,14 @@ class VariantsScreen extends StatelessWidget {
                           Expanded(
                             child: Text(
                               "My Variants",
+
                               style: Theme
                                   .of(context)
                                   .textTheme
                                   .titleMedium,
                             ),
                           ),
+
                           ElevatedButton.icon(
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.symmetric(
@@ -50,6 +52,7 @@ class VariantsScreen extends StatelessWidget {
                             },
                             icon: Icon(Icons.add),
                             label: Text("Add New"),
+
                           ),
                           Gap(20),
                           IconButton(
