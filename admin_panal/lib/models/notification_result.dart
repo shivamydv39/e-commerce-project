@@ -20,7 +20,6 @@ class NotificationResult {
     openedNotification = json['opened_notification'];
   }
 
-
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['platform'] = this.platform;
