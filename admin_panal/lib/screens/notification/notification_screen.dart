@@ -7,13 +7,10 @@ import 'package:gap/gap.dart';
 import '../../utility/constants.dart';
 import 'components/send_notification_form.dart';
 
-
-
-
 class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: SingleChildScrollView(
         primary: false,
         padding: EdgeInsets.all(defaultPadding),
@@ -34,19 +31,14 @@ class NotificationScreen extends StatelessWidget {
                           Expanded(
                             child: Text(
                               "My Notification",
-
-                              style: Theme
-                                  .of(context)
-                                  .textTheme
-                                  .titleMedium,
+                              style: Theme.of(context).textTheme.titleMedium,
                             ),
                           ),
                           ElevatedButton.icon(
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.symmetric(
                                 horizontal: defaultPadding * 1.5,
-                                vertical:
-                                defaultPadding,
+                                vertical: defaultPadding,
                               ),
                             ),
                             onPressed: () {
@@ -58,13 +50,13 @@ class NotificationScreen extends StatelessWidget {
                           Gap(20),
                           IconButton(
                               onPressed: () {
-                                context.dataProvider.getAllNotifications(showSnack: true);
+                                context.dataProvider
+                                    .getAllNotifications(showSnack: true);
                               },
                               icon: Icon(Icons.refresh)),
                         ],
                       ),
                       Gap(defaultPadding),
-
                       NotificationListSection(),
                     ],
                   ),
