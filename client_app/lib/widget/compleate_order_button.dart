@@ -6,7 +6,8 @@ class CompleteOrderButton extends StatelessWidget {
 
   const CompleteOrderButton({
     super.key,
-    this.onPressed, this.labelText,
+    this.onPressed,
+    this.labelText,
   });
 
   @override
@@ -25,9 +26,10 @@ class CompleteOrderButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         ),
         onPressed: onPressed,
-        child:  Text(
+        child: Text(
           labelText ?? 'Complete Order',
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );
