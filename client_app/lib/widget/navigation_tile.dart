@@ -35,7 +35,10 @@ class NavigationTile extends StatelessWidget {
               Expanded(
                 child: Text(
                   title,
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.black87),
+                  style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black87),
                 ),
               ),
               const Icon(Icons.arrow_forward_ios, color: Colors.black87),
