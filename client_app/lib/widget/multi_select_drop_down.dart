@@ -43,7 +43,9 @@ class MultiSelectDropDown<T> extends StatelessWidget {
                     final isSelected = selectedItems.contains(item);
                     return InkWell(
                       onTap: () {
-                        isSelected ? selectedItems.remove(item) : selectedItems.add(item);
+                        isSelected
+                            ? selectedItems.remove(item)
+                            : selectedItems.add(item);
                         onSelectionChanged(selectedItems);
                         menuSetState(() {});
                       },
