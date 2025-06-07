@@ -22,8 +22,9 @@ class ProductGridTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double discountPercentage =
-        context.dataProvider.calculateDiscountPercentage(product.price ?? 0, product.offerPrice ?? 0);
+    double discountPercentage = context.dataProvider
+        .calculateDiscountPercentage(
+            product.price ?? 0, product.offerPrice ?? 0);
     return GridTile(
       header: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -49,14 +50,16 @@ class ProductGridTile extends StatelessWidget {
             Consumer<FavoriteProvider>(
               builder: (context, favoriteProvider, child) {
                 return IconButton(
-                  icon:   Icon(
+                  icon: Icon(
                     Icons.favorite,
-                    color: favoriteProvider.checkIsItemFavorite(product.sId ?? '') ? Colors.orange  : const Color(0xFFA6A3A0),
-
+                    color:
+                        favoriteProvider.checkIsItemFavorite(product.sId ?? '')
+                            ? Colors.orange
+                            : const Color(0xFFA6A3A0),
                   ),
                   onPressed: () {
-                    context.favoriteProvider.updateToFavoriteList(product.sId ?? '');
-
+                    context.favoriteProvider
+                        .updateToFavoriteList(product.sId ?? '');
                   },
                 );
               },
@@ -96,13 +99,16 @@ class ProductGridTile extends StatelessWidget {
                 children: [
                   Flexible(
                     child: Text(
-                      product.offerPrice != 0 ? "Rs${product.offerPrice}" : "Rs${product.price}",
+                      product.offerPrice != 0
+                          ? "Rs${product.offerPrice}"
+                          : "Rs${product.price}",
                       style: Theme.of(context).textTheme.bodySmall,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(width: 3),
-                  if (product.offerPrice != null && product.offerPrice != product.price)
+                  if (product.offerPrice != null &&
+                      product.offerPrice != product.price)
                     Flexible(
                       child: Text(
                         "Rs${product.price}",
@@ -116,7 +122,6 @@ class ProductGridTile extends StatelessWidget {
                     ),
                 ],
               )
-
             ],
           ),
         ),
@@ -128,7 +133,9 @@ class ProductGridTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: CustomNetworkImage(
-          imageUrl: product.images!.isNotEmpty ? product.images?.safeElementAt(0)?.url ?? '' : '',
+          imageUrl: product.images!.isNotEmpty
+              ? product.images?.safeElementAt(0)?.url ?? ''
+              : '',
           fit: BoxFit.scaleDown,
           scale: 3.0,
         ),
