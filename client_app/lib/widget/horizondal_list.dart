@@ -6,7 +6,12 @@ class HorizontalList<T> extends StatelessWidget {
   final String Function(T) itemToString;
   final void Function(T) onSelect;
 
-  const HorizontalList({super.key, this.items, required this.itemToString, required this.selected, required this.onSelect});
+  const HorizontalList(
+      {super.key,
+      this.items,
+      required this.itemToString,
+      required this.selected,
+      required this.onSelect});
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +43,3 @@ class HorizontalList<T> extends StatelessWidget {
     );
   }
 }
-
-
-
