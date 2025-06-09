@@ -26,7 +26,8 @@ class UserProvider extends ChangeNotifier {
         "email": email.toLowerCase(),
         "password": data.password,
       };
-      final response = await service.addItem(endpointUrl: 'users/register', itemData: user);
+      final response =
+          await service.addItem(endpointUrl: 'users/register', itemData: user);
       if (response.isOk) {
         ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
         if (apiResponse.success == true) {
@@ -34,7 +35,8 @@ class UserProvider extends ChangeNotifier {
           log('Register Success');
           return null;
         } else {
-          SnackBarHelper.showErrorSnackBar('Failed to Register: ${apiResponse.message}');
+          SnackBarHelper.showErrorSnackBar(
+              'Failed to Register: ${apiResponse.message}');
           return 'Failed to Register: ${apiResponse.message}';
         }
       } else {
@@ -55,10 +57,12 @@ class UserProvider extends ChangeNotifier {
         "email": data.name.toLowerCase(),
         "password": data.password,
       };
-      final response = await service.addItem(endpointUrl: 'users/login', itemData: loginData);
+      final response = await service.addItem(
+          endpointUrl: 'users/login', itemData: loginData);
       if (response.isOk) {
         ApiResponse<User> apiResponse = ApiResponse<User>.fromJson(
-            response.body, (json) => User.fromJson(json as Map<String, dynamic>));
+            response.body,
+            (json) => User.fromJson(json as Map<String, dynamic>));
         if (apiResponse.success == true) {
           User? user = apiResponse.data;
           saveLoginInfo(user);
@@ -66,7 +70,8 @@ class UserProvider extends ChangeNotifier {
           log('Login success');
           return null;
         } else {
-          SnackBarHelper.showErrorSnackBar('Failed to Login: ${apiResponse.message}');
+          SnackBarHelper.showErrorSnackBar(
+              'Failed to Login: ${apiResponse.message}');
           return 'Failed to Login: ${apiResponse.message}';
         }
       } else {
