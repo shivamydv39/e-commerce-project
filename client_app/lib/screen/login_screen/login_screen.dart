@@ -16,7 +16,8 @@ class _AuthScreenState extends State<AuthScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   bool _isLoading = false;
   String? _errorMessage;
 
@@ -74,7 +75,6 @@ class _AuthScreenState extends State<AuthScreen> {
     return null;
   }
 
-
   Future<void> _submit() async {
     if (!_formKey.currentState!.validate()) {
       return;
@@ -112,7 +112,6 @@ class _AuthScreenState extends State<AuthScreen> {
           result = await context.userProvider.login(loginData);
         }
       }
-
 
       if (result == null && context.userProvider.getLoginUsr()?.sId != null) {
         if (mounted) {
@@ -175,19 +174,17 @@ class _AuthScreenState extends State<AuthScreen> {
                   Text(
                     _isLogin ? 'Welcome Back' : 'Create Account',
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      color: AppColor.darkGrey,
-                      fontWeight: FontWeight.bold,
-                    ),
+                          color: AppColor.darkGrey,
+                          fontWeight: FontWeight.bold,
+                        ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    _isLogin
-                        ? 'Sign in to continue'
-                        : 'Sign up to get started',
+                    _isLogin ? 'Sign in to continue' : 'Sign up to get started',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: Colors.grey[600],
-                    ),
+                          color: Colors.grey[600],
+                        ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 32),
@@ -313,15 +310,15 @@ class _AuthScreenState extends State<AuthScreen> {
                                 ),
                                 child: _isLoading
                                     ? const CircularProgressIndicator(
-                                  color: Colors.white,
-                                )
+                                        color: Colors.white,
+                                      )
                                     : Text(
-                                  _isLogin ? 'LOG IN' : 'SIGN UP',
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                                        _isLogin ? 'LOG IN' : 'SIGN UP',
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
                               ),
                             ),
                           ],
