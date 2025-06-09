@@ -19,7 +19,8 @@ class ProductByCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration.zero, () {
-      context.proByCProvider.filterInitialProductAndSubCategory(selectedCategory);
+      context.proByCProvider
+          .filterInitialProductAndSubCategory(selectedCategory);
     });
     return Scaffold(
       body: SafeArea(
@@ -30,12 +31,16 @@ class ProductByCategoryScreen extends StatelessWidget {
               snap: true,
               title: Text(
                 "${selectedCategory.name}",
-                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColor.darkOrange),
+                style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.darkOrange),
               ),
               expandedHeight: 190.0,
               flexibleSpace: LayoutBuilder(
                 builder: (context, constraints) {
-                  var top = constraints.biggest.height - MediaQuery.of(context).padding.top;
+                  var top = constraints.biggest.height -
+                      MediaQuery.of(context).padding.top;
                   return Stack(
                     children: [
                       Positioned(
@@ -47,14 +52,18 @@ class ProductByCategoryScreen extends StatelessWidget {
                             Consumer<ProductByCategoryProvider>(
                               builder: (context, proByCatProvider, child) {
                                 return Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 10.0),
                                   child: HorizontalList(
                                     items: proByCatProvider.subCategories,
-                                    itemToString: (SubCategory? val) => val?.name ?? '',
-                                    selected: proByCatProvider.mySelectedSubCategory,
+                                    itemToString: (SubCategory? val) =>
+                                        val?.name ?? '',
+                                    selected:
+                                        proByCatProvider.mySelectedSubCategory,
                                     onSelect: (val) {
                                       if (val != null) {
-                                        context.proByCProvider.filterProductBySubCategory(val);
+                                        context.proByCProvider
+                                            .filterProductBySubCategory(val);
                                       }
                                     },
                                   ),
@@ -69,9 +78,11 @@ class ProductByCategoryScreen extends StatelessWidget {
                                     items: const ['Low To High', 'High To Low'],
                                     onChanged: (val) {
                                       if (val?.toLowerCase() == 'low to high') {
-                                        context.proByCProvider.sortProducts(ascending: true);
+                                        context.proByCProvider
+                                            .sortProducts(ascending: true);
                                       } else {
-                                        context.proByCProvider.sortProducts(ascending: false);
+                                        context.proByCProvider
+                                            .sortProducts(ascending: false);
                                       }
                                     },
                                     displayItem: (val) => val,
@@ -79,17 +90,20 @@ class ProductByCategoryScreen extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: Consumer<ProductByCategoryProvider>(
-                                    builder: (context, proByCatProvider, child) {
+                                    builder:
+                                        (context, proByCatProvider, child) {
                                       return MultiSelectDropDown<Brand>(
                                         hintText: 'Filter By Brands',
                                         items: proByCatProvider.brands,
                                         onSelectionChanged: (val) {
                                           proByCatProvider.selectedBrands = val;
-                                          context.proByCProvider.filterProductByBrand();
+                                          context.proByCProvider
+                                              .filterProductByBrand();
                                           proByCatProvider.updateUI();
                                         },
                                         displayItem: (val) => val.name ?? '',
-                                        selectedItems: proByCatProvider.selectedBrands,
+                                        selectedItems:
+                                            proByCatProvider.selectedBrands,
                                       );
                                     },
                                   ),
