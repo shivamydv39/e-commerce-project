@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 import '../../../../widget/product_grid_view.dart';
 import '../../utility/app_color.dart';
 
-
-
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({super.key});
 
@@ -19,7 +17,10 @@ class FavoriteScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           "Favorites",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColor.darkOrange),
+          style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: AppColor.darkOrange),
         ),
       ),
       body: Padding(
@@ -30,8 +31,7 @@ class FavoriteScreen extends StatelessWidget {
                 items: favoriteProvider.favoriteProduct,
               );
             },
-          )
-      ),
+          )),
     );
   }
 }
