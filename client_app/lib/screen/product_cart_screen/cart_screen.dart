@@ -14,14 +14,16 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration.zero, () {
-
       context.cartProvider.getCartItems();
     });
     return Scaffold(
       appBar: AppBar(
         title: const Text(
           "My Cart",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColor.darkOrange),
+          style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: AppColor.darkOrange),
         ),
       ),
       body: Consumer<CartProvider>(
@@ -33,7 +35,8 @@ class CartScreen extends StatelessWidget {
                   ? const EmptyCart()
                   : Consumer<CartProvider>(
                       builder: (context, cartProvider, child) {
-                        return CartListSection(cartProducts: cartProvider.myCartItems);
+                        return CartListSection(
+                            cartProducts: cartProvider.myCartItems);
                       },
                     ),
 
@@ -46,7 +49,8 @@ class CartScreen extends StatelessWidget {
                   children: [
                     const Text(
                       "Total",
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400),
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.w400),
                     ),
                     AnimatedSwitcherWrapper(
                       child: Text(
@@ -66,15 +70,18 @@ class CartScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30, bottom: 20),
+                  padding:
+                      const EdgeInsets.only(left: 30, right: 30, bottom: 20),
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(padding: const EdgeInsets.all(20)),
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.all(20)),
                     onPressed: context.cartProvider.myCartItems.isEmpty
                         ? null
                         : () {
                             showCustomBottomSheet(context);
                           },
-                    child: const Text("Buy Now", style: TextStyle(color: Colors.white)),
+                    child: const Text("Buy Now",
+                        style: TextStyle(color: Colors.white)),
                   ),
                 ),
               )
