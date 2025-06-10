@@ -9,8 +9,6 @@ import '../../models/product.dart';
 import '../../widget/horizondal_list.dart';
 import 'components/product_rating_section.dart';
 
-
-
 class ProductDetailScreen extends StatelessWidget {
   final Product product;
 
@@ -68,7 +66,9 @@ class ProductDetailScreen extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            product.offerPrice != null ? "Rs${product.offerPrice}" : "Rs${product.price}",
+                            product.offerPrice != null
+                                ? "Rs${product.offerPrice}"
+                                : "Rs${product.price}",
                             style: Theme.of(context).textTheme.displayLarge,
                           ),
                           const SizedBox(width: 3),
@@ -85,7 +85,9 @@ class ProductDetailScreen extends StatelessWidget {
                           ),
                           const Spacer(),
                           Text(
-                            product.quantity != 0 ? "Available stock : ${product.quantity}" : "Not available",
+                            product.quantity != 0
+                                ? "Available stock : ${product.quantity}"
+                                : "Not available",
                             style: const TextStyle(fontWeight: FontWeight.w500),
                           )
                         ],
@@ -94,7 +96,8 @@ class ProductDetailScreen extends StatelessWidget {
                       product.proVariantId!.isNotEmpty
                           ? Text(
                               'Available ${product.proVariantTypeId?.type}',
-                              style: const TextStyle(color: Colors.red, fontSize: 16),
+                              style: const TextStyle(
+                                  color: Colors.red, fontSize: 16),
                             )
                           : const SizedBox(),
                       Consumer<ProductDetailProvider>(
@@ -120,34 +123,38 @@ class ProductDetailScreen extends StatelessWidget {
                       const SizedBox(height: 40),
                       //? add to cart button
                       SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton.icon(
-                          onPressed: product.quantity != 0
-                              ? () {
-                            context.proDetailProvider.addToCart(product);
-                          }
-                              : null,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: product.quantity != 0
-                                ? AppColor.primaryOrange
-                                : Colors.grey[400],
-                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
+                          width: double.infinity,
+                          child: ElevatedButton.icon(
+                            onPressed: product.quantity != 0
+                                ? () {
+                                    context.proDetailProvider
+                                        .addToCart(product);
+                                  }
+                                : null,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: product.quantity != 0
+                                  ? AppColor.primaryOrange
+                                  : Colors.grey[400],
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 12),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              elevation: 2,
                             ),
-                            elevation: 2,
-                          ),
-                          icon: const Icon(Icons.shopping_cart_outlined, color: Colors.white, size: 20), // Add cart icon
-                          label: Text(
-                            product.quantity != 0 ? "Add to cart" : "Out of Stock",
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600, // Semi-bold
-                              fontSize: 16,
+                            icon: const Icon(Icons.shopping_cart_outlined,
+                                color: Colors.white, size: 20), // Add cart icon
+                            label: Text(
+                              product.quantity != 0
+                                  ? "Add to cart"
+                                  : "Out of Stock",
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600, // Semi-bold
+                                fontSize: 16,
+                              ),
                             ),
-                          ),
-                        )
-                      )
+                          ))
                     ],
                   ),
                 )
