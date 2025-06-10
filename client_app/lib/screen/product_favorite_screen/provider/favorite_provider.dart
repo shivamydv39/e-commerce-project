@@ -4,12 +4,13 @@ import 'package:get_storage/get_storage.dart';
 import '../../../models/product.dart';
 import '../../../utility/constants.dart';
 
-
 class FavoriteProvider extends ChangeNotifier {
   final DataProvider _dataProvider;
   final box = GetStorage();
-  List<Product>  favoriteProduct = [];
+  List<Product> favoriteProduct = [];
+
   FavoriteProvider(this._dataProvider);
+
   updateToFavoriteList(String productId) {
     List<dynamic> favoriteList = box.read(FAVORITE_PRODUCT_BOX) ?? [];
     if (favoriteList.contains(productId)) {
@@ -23,7 +24,7 @@ class FavoriteProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool checkIsItemFavorite(String productId){
+  bool checkIsItemFavorite(String productId) {
     List<dynamic> favoriteList = box.read(FAVORITE_PRODUCT_BOX) ?? [];
     bool isExist = favoriteList.contains(productId);
     return isExist;
@@ -36,8 +37,8 @@ class FavoriteProvider extends ChangeNotifier {
     }).toList();
     notifyListeners();
   }
+
   void clearFavoriteList() {
     box.remove(FAVORITE_PRODUCT_BOX);
   }
-
 }
