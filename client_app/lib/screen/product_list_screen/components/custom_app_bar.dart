@@ -8,7 +8,6 @@ import '../../../widget/app_bar_action_button.dart';
 import '../../../widget/custom_search_bar.dart';
 import '../../profile_screen/profile_screen.dart';
 
-
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(100);
@@ -27,9 +26,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ProfileScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const ProfileScreen()),
                 );
-
               },
               child: const CircleAvatar(
                 radius: 24, // Adjust size as needed
@@ -45,7 +44,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 controller: TextEditingController(),
                 onChanged: (val) {
                   context.dataProvider.filterProducts(val);
-
                 },
               ),
             ),
