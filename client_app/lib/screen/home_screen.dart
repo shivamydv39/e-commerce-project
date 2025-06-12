@@ -29,13 +29,18 @@ class _HomeScreenState extends State<HomeScreen> {
     return PageWrapper(
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
-          items: AppData.bottomNavBarItems, // Use the updated list
+          items: AppData.bottomNavBarItems,
+          // Use the updated list
           currentIndex: newIndex,
-          selectedItemColor: const Color(0xFFEC6813), // Set your active color
-          unselectedItemColor: Colors.grey, // Set your inactive color
-          showSelectedLabels: false, // We are showing labels in the custom icon
+          selectedItemColor: const Color(0xFFEC6813),
+          // Set your active color
+          unselectedItemColor: Colors.grey,
+          // Set your inactive color
+          showSelectedLabels: false,
+          // We are showing labels in the custom icon
           showUnselectedLabels: false,
-          type: BottomNavigationBarType.fixed, // Adjust if you have fewer/more items
+          type: BottomNavigationBarType.fixed,
+          // Adjust if you have fewer/more items
           onTap: (currentIndex) {
             setState(() {
               newIndex = currentIndex;
