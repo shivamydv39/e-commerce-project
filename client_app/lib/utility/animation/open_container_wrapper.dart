@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 
-
-
 class OpenContainerWrapper extends StatelessWidget {
   const OpenContainerWrapper({
     super.key,
