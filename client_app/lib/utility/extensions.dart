@@ -31,9 +31,3 @@ extension Providers on BuildContext {
   ProfileProvider get profileProvider =>
       Provider.of<ProfileProvider>(this, listen: false);
 }
-
-
-
-
-
-
