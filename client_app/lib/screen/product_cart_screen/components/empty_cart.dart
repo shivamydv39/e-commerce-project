@@ -13,6 +13,7 @@ class EmptyCart extends StatelessWidget {
               child: Image.asset('assets/images/empty_cart.png'),
             ),
           ),
+
           const Text(
             "Empty cart",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
