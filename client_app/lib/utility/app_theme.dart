@@ -33,6 +33,7 @@ class AppTheme {
         fontWeight: FontWeight.bold,
         color: Colors.black,
       ),
+
       displayMedium: TextStyle(
         fontSize: 19,
         fontWeight: FontWeight.w500,
