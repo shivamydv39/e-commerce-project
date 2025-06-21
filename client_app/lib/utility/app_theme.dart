@@ -57,6 +57,5 @@ class AppTheme {
       elevation: 0,
       centerTitle: true,
     ),
-
   );
 }
