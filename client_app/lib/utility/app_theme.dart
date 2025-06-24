@@ -40,6 +40,7 @@ class AppTheme {
         fontWeight: FontWeight.w500,
         color: Colors.black,
       ),
+
       displaySmall: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w500,
