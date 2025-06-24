@@ -57,6 +57,7 @@ class AppTheme {
       titleLarge: TextStyle(fontSize: 12),
     ),
 
+
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0,
