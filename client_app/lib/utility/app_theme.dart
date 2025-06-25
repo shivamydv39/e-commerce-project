@@ -7,6 +7,7 @@ class AppTheme {
   const AppTheme._();
 
   static ThemeData lightAppTheme = ThemeData(
+
     primaryColor: AppColor.primaryOrange,
     colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
         .copyWith(secondary: Colors.green),
