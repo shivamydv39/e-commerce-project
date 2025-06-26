@@ -25,6 +25,7 @@ class AppTheme {
         minimumSize: Size.zero,
 
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+
       ),
     ),
 
