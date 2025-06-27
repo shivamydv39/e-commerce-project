@@ -19,6 +19,7 @@ class MyAddressPage extends StatelessWidget {
               color: AppColor.darkOrange),
         ),
       ),
+
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
